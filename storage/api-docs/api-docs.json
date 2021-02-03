@@ -1,0 +1,64 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Transfer",
+        "description": "Api for transaction between users",
+        "contact": {
+            "email": "fernandes.amanda67@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "Controllers": {
+            "$ref": ""
+        },
+        "/api/transaction": {
+            "post": {
+                "tags": [
+                    "Transaction"
+                ],
+                "summary": "Send the transaction",
+                "description": "Returns transaction",
+                "operationId": "App\\Http\\Controllers\\TransactionController::send",
+                "parameters": [
+                    {
+                        "name": "payer_id",
+                        "in": "query",
+                        "description": "Who is going to send the money",
+                        "required": true
+                    },
+                    {
+                        "parameter": 1,
+                        "name": "payee_id",
+                        "in": "query",
+                        "description": "Who is going to receive the money",
+                        "required": true
+                    },
+                    {
+                        "name": "value",
+                        "in": "query",
+                        "description": "The value of the transaction",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "500": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
