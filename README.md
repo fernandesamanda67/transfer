@@ -12,7 +12,7 @@
 
 :small_blue_diamond: [Documentação](#Documentação)
 
-... 
+
 
 ## Descrição do projeto
 
@@ -38,5 +38,5 @@ php artisan migrate
 vendor/bin/phpunit
 ```
 
-## Documentação 
+## Documentação :books:
 http://localhost:8000/api/documentation
