@@ -6,9 +6,9 @@
 
 :small_blue_diamond: [Tecnologia](#tecnologia)
 
-:small_blue_diamond: [Como rodar a aplicação](#Como-rodar-a-aplicação)
+:small_blue_diamond: [Como rodar a aplicação](#Como-rodar-a-aplicação-arrow_forward)
 
-:small_blue_diamond: [Como rodar os testes](#Como-rodar-os-testes)
+:small_blue_diamond: [Como rodar os testes](#Como-rodar-os-testes-arrow_forward)
 
 :small_blue_diamond: [Documentação](#Documentação)
 
