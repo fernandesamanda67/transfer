@@ -19,4 +19,4 @@ use App\Http\Controllers\TransactionController;
     return $request->user();
 });*/
 
-Route::post('transaction', [TransactionController::class, 'send']);
+Route::post('transaction', [TransactionController::class, 'send'])->name('transaction');

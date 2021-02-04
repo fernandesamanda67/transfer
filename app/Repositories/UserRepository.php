@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\User;
 use App\Repositories\Contracts\UserRepositoryContract;
+use Illuminate\Support\Facades\DB;
 
 class UserRepository implements UserRepositoryContract{
 
@@ -32,10 +33,32 @@ class UserRepository implements UserRepositoryContract{
         return true;        
     }
 
+    public function getUser($id)
+    {
+        return $this->model->find($id);
+    }
+
     public function updateUser($id, array $values)
     {
-        $user = $this->model->find($user_id);
+        $user = $this->getUser($id);
         $user->update($values);
         return $user;
+    }
+
+    public function updateWallet($payerId, $payeeId, $value)
+    {
+        DB::beginTransaction();
+        try {
+            $payer = $this->getUser($payerId);
+            $payee = $this->getUser($payeeId);
+            $this->updateUser($payerId, ['wallet' => $payer->wallet -= $value]);
+            $this->updateUser($payeeId, ['wallet' => $payee->wallet += $value]);
+            DB::commit();
+            return true;
+        }
+        catch (Exception $e) {
+            DB::rollback();
+            return false;
+        }
     }
 }
